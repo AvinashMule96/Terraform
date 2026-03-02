@@ -32,11 +32,22 @@ provider "aws" {
 
   }
 
-  resource "aws_instance" "terra" {
+  # resource "aws_instance" "terra" {
+  #   ami = "ami-051a31ab2f4d498f5"
+  #   instance_type = "t3.micro"
+  #   key_name = "mykey"
+  #   vpc_security_group_ids = "sg-04066b02d89d6dc20"
+  #   tags = {
+  #     Name = "new"
+  #   }
+    
+  # }
+
+    resource "aws_instance" "terra" {
     ami = "ami-051a31ab2f4d498f5"
     instance_type = "t3.micro"
     key_name = "mykey"
-    vpc_security_group_ids = "sg-04066b02d89d6dc20"
+    vpc_security_group_ids = [aws_security_group.mysg.id]
     tags = {
       Name = "new"
     }
