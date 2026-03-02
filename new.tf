@@ -42,3 +42,21 @@ provider "aws" {
     }
     
   }
+
+  resource "aws_security_group" "mysg" {
+    ingress {
+      description = "allow ssh"
+      to_port = 22
+      from_port = 22
+      protocol = "tcp"
+      cidr_blocks = ["0.0.0.0/0"]
+    }
+    egress {
+      description = "allow all"
+      to_port = 0
+      from_port = 0
+      protocol = "-1"
+      cidr_blocks = ["0.0.0.0/0"]
+    }
+    
+  }
