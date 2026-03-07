@@ -43,34 +43,46 @@ provider "aws" {
     
   # }
 
-    resource "aws_instance" "terra" {
-    ami = "ami-051a31ab2f4d498f5"
-    instance_type = "t3.micro"
-    key_name = "mykey"
-    vpc_security_group_ids = [aws_security_group.mysg.id]
-    tags = {
-      Name = "new"
-    }
+  # resource "aws_instance" "terra" {
+  #   ami = "ami-051a31ab2f4d498f5"
+  #   instance_type = "t3.micro"
+  #   key_name = "mykey"
+  #   vpc_security_group_ids = [aws_security_group.mysg.id]
+  #   tags = {
+  #     Name = "new"
+  #   }
     
-  }
+  # }
 
-  resource "aws_security_group" "mysg" {
-    ingress {
-      description = "allow ssh"
-      to_port = 22
-      from_port = 22
-      protocol = "tcp"
-      cidr_blocks = ["0.0.0.0/0"]
-    }
-    egress {
-      description = "allow all"
-      to_port = 0
-      from_port = 0
-      protocol = "-1"
-      cidr_blocks = ["0.0.0.0/0"]
-    }
-    lifecycle {
-      create_before_destroy = true
-    }
+  # 
+  
+
+
+
+
+
+
+
+
+
+
+provider "aws" {
+  # region = "ap-south-1" #change region 
+region = var.region_name
+  
+}
+
+  resource "aws_instance" "demo" {
+  # ami  = "ami-0f559c3642608c138"
+   ami = var.ami
+
+  # instance_type = "t3.micro"
+  instance_type = var.instance_type[0]
+  # key_name = "mykey"
+  key_name = var.key
+  vpc_security_group_ids = var.sg
+ tags = {
+  Name = "webserver"
+ }
     
   }
