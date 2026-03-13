@@ -1,0 +1,22 @@
+
+provider "aws" {
+  # region = "ap-south-1" #change region 
+region = var.region_name
+  
+}
+
+  resource "aws_instance" "demo" {
+  ami = var.ami
+ instance_type = var.instance_type[0]
+  key_name = var.key
+  vpc_security_group_ids = [data.aws_security_group.sg.id]
+ tags = {
+  Name = "webserver"
+ }
+    
+  }
+
+  data "aws_security_group" "sg" {
+    name = "df"
+    vpc_id = "vpc-0a7b0b2c68b858892"
+  }

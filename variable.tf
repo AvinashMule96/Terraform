@@ -20,7 +20,5 @@ variable "key" {
 default = "mykey"
   
 }
-variable "sg" {
-    default = ["sg-08c811f48a4803dda"]
+
   
-}
