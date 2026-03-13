@@ -17,6 +17,6 @@ region = var.region_name
   }
 
   data "aws_security_group" "sg" {
-    name = "df"
+    name = "launch-wizard-20"
     vpc_id = "vpc-0a7b0b2c68b858892"
   }
