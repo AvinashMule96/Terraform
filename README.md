@@ -26,6 +26,7 @@ This project also demonstrates important Terraform concepts:
 * **Data Blocks** to dynamically fetch AWS resources such as Availability Zones
 * **User Data Scripts** to automatically configure EC2 instances during launch
 * Infrastructure defined using **Terraform HCL**
+* used terraform state commands - terraform sate list , terraform state show , terraform state mv , terraform state pull , terraform state rm.
 
 ## 📂 Project Structure
 
